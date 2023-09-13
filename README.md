@@ -1,5 +1,6 @@
 # physalia.rs.2023
 Physalia course on Ecological Remote Sensing
+https://www.physalia-courses.org/courses-workshops/remote-sensing-in-r/
 
 Material is distributed as follows:
 ## Presentations
