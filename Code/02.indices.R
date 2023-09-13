@@ -32,8 +32,3 @@ plot(dvi2006, col=cl)
 dvi1992 <- im.dvi(m1992, 1, 2)
 dvi2006 <- im.dvi(m2006, 1, 2)
 
-# DVI difference in time
-dvi_dif = dvi1992 - dvi2006
-cld <- colorRampPalette(c('blue','white','red'))(100)
-plot(dvi_dif, col=cld)
-
