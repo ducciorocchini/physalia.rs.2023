@@ -1,26 +1,12 @@
-# import and visualise data
+# This is a script to visualize satellite data
 
-# install package
+library(devtools) # packages in R are also called libraries
+
+# install the imageRy package from GitHub
 devtools::install_github("ducciorocchini/imageRy")
 
-# libraries
 library(imageRy)
 library(terra)
-
-# look at the data inside
-im.list()
-
-# [19] "sentinel.dolomites.b2.tif"                         
-# [20] "sentinel.dolomites.b3.tif"                         
-# [21] "sentinel.dolomites.b4.tif"                         
-# [22] "sentinel.dolomites.b8.tif" 
-
-# import data
-b2 <- im.import("sentinel.dolomites.b2.tif")
-b3 <- im.import("sentinel.dolomites.b3.tif")
-b4 <- im.import("sentinel.dolomites.b4.tif")
-b8 <- im.import("sentinel.dolomites.b8.tif")
-
 
 # simple operation
 10 + 10
@@ -50,29 +36,87 @@ plot(iron, diameter, pch=19, cex=2, col="red")
 im.list()
 
 # importing data
+# blue band
 b2 <- im.import("sentinel.dolomites.b2.tif") # b2 is the blue wavelength
 b2
 
+# green band
 b3 <- im.import("sentinel.dolomites.b3.tif") # b2 is the green wavelength
 b3
 
+# red band
 b4 <- im.import("sentinel.dolomites.b4.tif") # b2 is the green wavelength
 b4
 
+# NIR band
 b8 <- im.import("sentinel.dolomites.b8.tif") # b2 is the green wavelength
 b8
-
-sentdo <- c(b2, b3, b4, b8)
 
 plot(b2) # blue
 
 cl <- colorRampPalette(c("dark blue", "blue", "light blue")) (100) # 100 is the amount of colours in the gradient
 plot(b2, col=cl)
 
-# stack everything altogether
-sentsass <- c(b2, b3, b4, b8)
+# exercise: plot the green band of Sentinel with a new color palette
+clg <- colorRampPalette(c("dark green", "green", "light green")) (100) # 100 is the amount of colours in the gradient
+plot(b3, col=clg)
 
-# visualise
-im.plotRGB(sentsass)
+# multiframe
+par(mfrow=c(1,2))
 
-im.plotRGB.user(sentsass, 4, 3, 2)
+cl <- colorRampPalette(c("dark blue", "blue", "light blue")) (100) # 100 is the amount of colours in the gradient
+plot(b2, col=cl)
+
+# exercise: plot the green band of Sentinel with a new color palette
+clg <- colorRampPalette(c("dark green", "green", "light green")) (100) # 100 is the amount of colours in the gradient
+plot(b3, col=clg)
+
+# Exercise: plot all the bands
+par(mfrow=c(2,2))
+
+cl <- colorRampPalette(c("dark blue", "blue", "light blue")) (100) # 100 is the amount of colours in the gradient
+plot(b2, col=cl)
+
+# exercise: plot the green band of Sentinel with a new color palette
+clg <- colorRampPalette(c("dark green", "green", "light green")) (100) # 100 is the amount of colours in the gradient
+plot(b3, col=clg)
+
+clr <- colorRampPalette(c("dark red", "red", "pink")) (100) # 100 is the amount of colours in the gradient
+plot(b4, col=clr)
+
+cln <- colorRampPalette(c("brown", "orange", "yellow")) (100) # 100 is the amount of colours in the gradient
+plot(b8, col=cln)
+
+# Sentinel-2 image
+sentdo <- c(b2, b3, b4, b8)
+clall <- colorRampPalette(c("black", "dark gray", "gray")) (100) # 100 is the amount of colours in the gradient
+plot(sentdo, col=clall)
+
+# how to consider only one element
+plot(sentdo[[4]])
+
+# dev.off() cleaning graphs
+dev.off()
+
+# how to consider only one element
+plot(sentdo[[4]])
+
+# RGB space
+im.plotRGB.user(sentdo, 3, 2, 1)  # it plots the first three layers in the RGB components
+
+# use of NIR
+im.plotRGB.user(sentdo, 4, 3, 2)  # it plots the first three layers in the RGB components
+
+# multiframe with the natural colours image and the false colour image
+par(mfrow=c(1,2))
+im.plotRGB.user(sentdo, 3, 2, 1)  # it plots the first three layers in the RGB components
+im.plotRGB.user(sentdo, 4, 3, 2)  # it plots the first three layers in the RGB components
+
+im.plotRGB.user(sentdo, 3, 4, 2)  # it plots the first three layers in the RGB components
+im.plotRGB.user(sentdo, 3, 2, 4)  # it plots the first three layers in the RGB components
+
+# what is the band carrying the highest infomration
+pairs(sentdo)
+
+
+
