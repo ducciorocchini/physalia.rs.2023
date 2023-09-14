@@ -75,7 +75,14 @@ p
 
 # final plot
 library(ggplot2)
-p1 <- ggplot(p, aes(x=cover, y=p1992, color=cover)) + geom_bar(stat="identity", fill="white")
+p1 <- ggplot(p, aes(x=cover, y=p1992, color=cover)) + geom_bar(stat="identity", fill="white") 
 p2 <- ggplot(p, aes(x=cover, y=p2006, color=cover)) + geom_bar(stat="identity", fill="white")
 
 p1+p2 # library patchwork needed
+
+# putting the same range
+p1 <- ggplot(p, aes(x=cover, y=p1992, color=cover)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+p2 <- ggplot(p, aes(x=cover, y=p2006, color=cover)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+
+p1+p2 # library patchwork needed
+
