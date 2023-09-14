@@ -33,6 +33,5 @@ pca
 # 3. pca map
 pci <- predict(sentdo, pca, index=c(1:4))
 
-library(viridis)
 viridis <- colorRampPalette(viridis(7))(255)
 plot(pci, col=viridis)
