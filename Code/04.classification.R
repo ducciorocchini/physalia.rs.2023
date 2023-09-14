@@ -15,29 +15,55 @@ m2006 <- im.import("matogrosso_ast_2006209_lrg.jpg")
 # classification
 
 # 1992
-# 1. get training sets
+# 1. get values of the image
 val1992 <- values(m1992)
+val1992 
 
 # 2. cluster
 k1992 <- kmeans(val1992, centers = 2)
+k1992
+k1992$cluster
 
 # 3. build final map
 m1992c <- setValues(m1992[[1]], k1992$cluster) # assign new values to a raster object
+m1992c
+plot(m1992c)
+
+# class 1 = forest
+# class 2 = agriculture
 
 # 2006
-# 1. get training sets
+# 1. get values of the image
 val2006 <- values(m2006)
+val2006
 
 # 2. cluster
 k2006 <- kmeans(val2006, centers = 2)
+k2006
+k2006$cluster
 
 # 3. build final map
 m2006c <- setValues(m2006[[1]], k2006$cluster) # assign new values to a raster object
+m2006c
+plot(m2006c)
 
+# class 1 = forest
+# class 2 = agriculture
 
 # estimate frequencies
 freq1992 <- freq(m1992c)
 freq2006 <- freq(m2006c)
+
+freq1992
+freq2006
+
+totpix1992 = 1500 * 1200
+perc1992 = freq1992 * 100 / totpix1992 
+perc1992
+
+totpix2006 = 3000 * 2400
+perc2006 = freq2006 * 100 / totpix2006 
+perc2006
 
 # build dataframe for plotting frequencies
 cover <- c("Forest","Agriculture") 
