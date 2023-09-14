@@ -6,7 +6,7 @@ library(imageRy)
 library(terra)
 library(viridis)
 
-im.list
+im.list()
 
 sent <- im.import("sentinel.png")
 
