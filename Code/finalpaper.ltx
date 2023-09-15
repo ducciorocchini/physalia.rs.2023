@@ -1,0 +1,110 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} % pacchetto per parti grafiche
+\usepackage{color}
+\usepackage{lineno}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{listings}
+\linenumbers
+%  COLORI TESTO 
+%  items
+
+\title{This is my first LaTeX document!}
+\author{Duccio Rocchini $^1$, Student2 $^2$}
+
+% le funzioni in latex si indicano con \ e gli argomenti vanno all'interno di parentesi graffe
+
+\begin{document}
+\maketitle
+
+$^1$ Alma Mater Studiorum University of Bologna
+
+$^2$ NASA
+
+\tableofcontents
+
+\begin{abstract}
+Here is the abstract of my Master Thesis.
+
+The Master Thesis is dealing with something.
+
+Concluding, I made beautiful science.
+\end{abstract}
+
+
+\section{Introduction}\label{section:intro}
+\textcolor{blue}{This is my master thesis blablabla.}
+
+As we will se later on, the formula for calculating diversity is quite simple and makes use of a $\sum$.
+
+Blablabla ......
+
+The flight of laepidoptera is based on their physical characters \citep{parlin}. This is also true for the shape of phytoplankton \citep{jones}.
+
+\section{Methods}
+These are the methods of my thesis. As I stated in section \ref{section:intro}....
+
+The diversity was calculated by the following formula:
+
+\begin{equation}
+ H = 3 \times 2 
+\label{eq:moltiplica}
+\end{equation}
+
+\begin{equation}
+ H = - \sum_{i=1}^{6} p_i \times \log{p_{ijm}}
+\label{eq:shannon}
+\end{equation}
+
+And here is the code used!:
+\lstinputlisting[language=R]{source_test_lezione.r}
+
+\subsection{Study area}
+My study area is the Brenta Chain...
+
+\subsection{Field sampling}
+I sampled these plots (Figure \ref{fig:canyon}).
+
+\begin{figure}
+\centering
+    \includegraphics[width=0.7\textwidth]{climbing.png}
+    \caption{This is the Grand Canyon.}
+    \label{fig:canyon}
+\end{figure}
+
+
+\section{Results}
+Here are the main results of my paper / thesis:
+
+\begin{itemize}
+ \item Laepidoptera are different from phytoplankton
+ \item blablabla
+ \item blablabla
+\end{itemize}
+
+\begin{enumerate}
+ \item Laepidoptera are different from phytoplankton
+ \item blablabla
+ \item blablabla
+\end{enumerate}
+
+
+\section{Discussion}
+As we have seen in Equation \ref{eq:shannon} blablabla....
+But also Equation \ref{eq:moltiplica} is important.
+
+\begin{thebibliography}{999}
+
+\bibitem[Jones et al.(2021)]{jones}
+Jones, C., Clayton, S., Ribalet, F., Armbrust, E.V. and Harchaoui, Z. (2021), A Kernel-Based Change Detection Method to Map Shifts in Phytoplankton Communities Measured by Flow Cytometry. Methods in Ecology and Evolution. Accepted Author Manuscript. https://doi.org/10.1111/2041-210X.13647
+
+\bibitem[Parlin et al.(2021)]{parlin}
+Parlin, A.F., Stratton, S.M. and Guerra, P.A. (2021), Assaying lepidopteran flight directionality with non-invasive methods that permit repeated use and release after testing. Methods in Ecology and Evolution. Accepted Author Manuscript. https://doi.org/10.1111/2041-210X.13648
+
+\end{thebibliography}
+
+
+\end{document}
+
