@@ -1,27 +1,37 @@
-# Calculation spatial variability on remote sensing data
+# measuring variability from RS imagery
 
-# R code variability
-
-library(imageRy)
 library(terra)
+library(imageRy)
 library(viridis)
 
 im.list()
 
 sent <- im.import("sentinel.png")
 
-# band1 = NIR
-# band2 = red
-# band3 = green
-
 im.plotRGB.user(sent, 1, 2, 3)
 
-# calculation of variability over NIR
 nir <- sent[[1]]
 
+# calculation
 sd3 <- focal(nir, matrix(1/9, 3, 3), fun=sd)
 
 viridis <- colorRampPalette(viridis(7))(255)
 plot(sd3, col=viridis)
+
+# stacking nir and sd
+stacknv <- c(nir, sd3)
+plot(stacknv, col=viridis)
+
+# change the moving window
+sd5 <- focal(nir, matrix(1/25, 5, 5), fun=sd)
+stacknv <- c(nir, sd3, sd5)
+plot(stacknv, col=viridis)
+
+# change the moving window
+sd7 <- focal(nir, matrix(1/49, 7, 7), fun=sd)
+stacknv <- c(nir, sd3, sd5, sd7)
+plot(stacknv, col=viridis)
+
+
 
 
