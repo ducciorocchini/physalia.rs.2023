@@ -1,110 +1,94 @@
-\documentclass[a4paper,12pt]{article}
+% lisjglsdjnjdfgil this is not read, no worries!
 
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx} % pacchetto per parti grafiche
-\usepackage{color}
+% [] for structures!
+
+\documentclass[a4paper, 12pt]{article}
+\usepackage{graphicx} % Required for inserting images
 \usepackage{lineno}
 \usepackage{hyperref}
 \usepackage{natbib}
-\usepackage{listings}
+\usepackage{color}
 \linenumbers
-%  COLORI TESTO 
-%  items
+\newcommand{\tb}{\textcolor{blue}}
+\linespread{1.5}
 
-\title{This is my first LaTeX document!}
-\author{Duccio Rocchini $^1$, Student2 $^2$}
+\title{First paper in Physalia}
+\author{Duccio Rocchini $^1$}
+\date{ } 
 
-% le funzioni in latex si indicano con \ e gli argomenti vanno all'interno di parentesi graffe
+% TeXLive
+% kile
 
 \begin{document}
+
 \maketitle
 
-$^1$ Alma Mater Studiorum University of Bologna
-
-$^2$ NASA
+$^1$ UNIBO - via Irnerio....
 
 \tableofcontents
 
 \begin{abstract}
-Here is the abstract of my Master Thesis.
-
-The Master Thesis is dealing with something.
-
-Concluding, I made beautiful science.
+The house stood on a slight rise just on the edge of the village. It stood on its own and looked out over a broad spread of West Country farmland. Not a remarkable house by any means—it was about thirty years old, squattish, squarish, made of brick, and had four windows set in the front of a size and proportion which more or less exactly failed to please the eye.
 \end{abstract}
 
+\section{Introduction} % sections with no numbers
 
-\section{Introduction}\label{section:intro}
-\textcolor{blue}{This is my master thesis blablabla.}
+\tb{The only person for whom the house was in any way special was Arthur Dent, and that was only because it happened to be the one he lived in.} As we will see in Section \ref{sec:methods}, he had lived in it for about three years, ever since he had moved out of London because it made him nervous and irritable. \tb{He was about thirty as well}, tall, dark-haired and never quite at ease with himself. The thing that used to worry him most was the fact that people always used to ask him what he was looking so worried about. He worked in local radio which he always used to tell his friends was a lot more interesting than they probably thought. It was, too—most of his friends worked in advertising.
 
-As we will se later on, the formula for calculating diversity is quite simple and makes use of a $\sum$.
+The only person for whom the house was in any way special was Arthur Dent, and that was only because it happened to be the one he lived in. He had lived in it for about three years, ever since he had moved out of London because it made him nervous and irritable. He was about thirty as well, tall, dark-haired and never quite at ease with himself. The thing that used to worry him most was the fact that people always used to ask him what he was looking so worried about. He worked in local radio which he always used to tell his friends was a lot more interesting than they probably thought. It was, too—most of his friends worked in advertising.
 
-Blablabla ......
+\section{Methods}\label{sec:methods}
+\subsection{Study area} % itemize
+The thing that used to worry him most was the fact that people always used to ask him what he was looking so worried about (Figure \ref{fig:brenta}). He worked in local radio which he always used to tell his friends was a lot more interesting than they probably thought. It was, too—most of his friends worked in advertising (Figure \ref{fig:lake}).
 
-The flight of laepidoptera is based on their physical characters \citep{parlin}. This is also true for the shape of phytoplankton \citep{jones}.
+\noindent The main characteristics of the study area are:
+\begin{itemize}
+    \item Elevation: 3000 meters
+    \item Precipitations: n mm per year
+    \item Meam Annual Temperature: 12 degrees
+\end{itemize}
 
-\section{Methods}
-These are the methods of my thesis. As I stated in section \ref{section:intro}....
+\noindent The main characteristics of the study area are:
+\begin{enumerate}
+    \item Elevation: 3000 meters
+    \item Precipitations: n mm per year
+    \item Meam Annual Temperature: 12 degrees
+\end{enumerate}
 
-The diversity was calculated by the following formula:
+\subsection{Statistical analysis}
+The calculation done in this manuscript can be viewed in Equation \ref{eq:newton}.
 
 \begin{equation}
- H = 3 \times 2 
-\label{eq:moltiplica}
+    F = \sqrt[3]{G \times \frac{m_1 \times m_2}{r^2}}
+    \label{eq:newton}
 \end{equation}
-
-\begin{equation}
- H = - \sum_{i=1}^{6} p_i \times \log{p_{ijm}}
-\label{eq:shannon}
-\end{equation}
-
-And here is the code used!:
-\lstinputlisting[language=R]{source_test_lezione.r}
-
-\subsection{Study area}
-My study area is the Brenta Chain...
-
-\subsection{Field sampling}
-I sampled these plots (Figure \ref{fig:canyon}).
-
-\begin{figure}
-\centering
-    \includegraphics[width=0.7\textwidth]{climbing.png}
-    \caption{This is the Grand Canyon.}
-    \label{fig:canyon}
-\end{figure}
 
 
 \section{Results}
-Here are the main results of my paper / thesis:
 
-\begin{itemize}
- \item Laepidoptera are different from phytoplankton
- \item blablabla
- \item blablabla
-\end{itemize}
-
-\begin{enumerate}
- \item Laepidoptera are different from phytoplankton
- \item blablabla
- \item blablabla
-\end{enumerate}
+The only person for whom the house was in any way special was Arthur Dent, and that was only because it happened to be the one he lived in. He had lived in it for about three years, ever since he had moved out of London because it made him nervous and irritable. He was about thirty as well, tall, dark-haired and never quite at ease with himself. The thing that used to worry him most was the fact that people always used to ask him what he was looking so worried about. He worked in local radio which he always used to tell his friends was a lot more interesting than they probably thought. It was, too—most of his friends worked in advertising.
 
 
 \section{Discussion}
-As we have seen in Equation \ref{eq:shannon} blablabla....
-But also Equation \ref{eq:moltiplica} is important.
+The only person for whom the house was in any way special was Arthur Dent, and that was only because it happened to be the one he lived in. He had lived in it for about three years, ever since he had moved out of London because it made him nervous and irritable. He was about thirty as well, tall, dark-haired and never quite at ease with himself. The thing that used to worry him most was the fact that people always used to ask him what he was looking so worried about. He worked in local radio which he always used to tell his friends was a lot more interesting than they probably thought. It was, too—most of his friends worked in advertising \citep{yoccoz2001}.
 
 \begin{thebibliography}{999}
-
-\bibitem[Jones et al.(2021)]{jones}
-Jones, C., Clayton, S., Ribalet, F., Armbrust, E.V. and Harchaoui, Z. (2021), A Kernel-Based Change Detection Method to Map Shifts in Phytoplankton Communities Measured by Flow Cytometry. Methods in Ecology and Evolution. Accepted Author Manuscript. https://doi.org/10.1111/2041-210X.13647
-
-\bibitem[Parlin et al.(2021)]{parlin}
-Parlin, A.F., Stratton, S.M. and Guerra, P.A. (2021), Assaying lepidopteran flight directionality with non-invasive methods that permit repeated use and release after testing. Methods in Ecology and Evolution. Accepted Author Manuscript. https://doi.org/10.1111/2041-210X.13648
-
+    \bibitem[Yoccoz et al.(2021)]{yoccoz2001}
+    Yoccoz, N. G., Nichols, J. D., \& Boulinier, T. (2001). Monitoring of biological diversity in space and time. Trends in Ecology \& Evolution, 16(8), 446-453.
 \end{thebibliography}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{dolbr.jpg}
+    \caption{This is a sketch of the Brenta mountain.}
+    \label{fig:brenta}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{lake.jpg}
+    \caption{This is a sketch of the Brenta mountain.}
+    \label{fig:lake}
+\end{figure}
 
 \end{document}
-
